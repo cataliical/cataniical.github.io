@@ -11,6 +11,7 @@
 お問い合わせやご連絡は、各SNSのDM（ダイレクトメッセージ）よりお願いいたします。
 - **Daily Thinking & Tech:** [X (@cataniical)](https://x.com/cataniical)
 - **Visual Log:** [Instagram (@cataniical)](https://www.instagram.com/cataniical)
+- **Video Log:** [YouTube (@cataniical)](https://www.youtube.com/@cataniical)
 - **Short Movie:** [TikTok (@cataniical)](https://www.tiktok.com/@cataniical)
 - **Source Code:** [GitHub (@cataniical)](https://github.com/cataniical)
 
