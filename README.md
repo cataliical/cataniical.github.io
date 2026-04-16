@@ -1,29 +1,28 @@
 <style>
-  /* 全体の背景を柔らかな木目・紙のような質感に */
-  body {
-    background-color: #fdfaf2; /* 柔らかな生成り色 */
-    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); /* 繊細な木目テクスチャ */
-    color: #4a4138; /* 濃い茶色（墨色） */
-    font-family: "Hiragino Mincho ProN", "MS Mincho", serif;
-    padding: 20px;
+/* ヘッダーをRusty（錆びた鉄・赤錆）な質感に */
+  header {
+    background: linear-gradient(135deg, #7a4a3a 0%, #4a2c24 100%) !important; /* 錆びた鉄のような赤茶色 */
+    border-bottom: 3px solid #3d241e !important;
   }
 
-  /* コンテンツエリアを古い羊皮紙のような質感に */
-  .container-lg {
-    background: rgba(255, 255, 255, 0.7); /* 半透明の白で文字を読みやすく */
-    border: 1px solid #d3c6a6;
-    border-radius: 8px;
-    padding: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  /* フッターも同様に */
+  footer {
+    background: #4a2c24 !important;
+    color: #a69080 !important;
   }
 
-  h1, h2, h3 {
-    color: #5d5245; /* 枯れ木のようなブラウン */
-    border-bottom: 2px dashed #d3c6a6;
-    padding-bottom: 10px;
+  /* ヘッダー内の文字色をアンティークゴールド風に */
+  header h1, header h2 {
+    color: #d3c6a6 !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   }
-
-  a { color: #8b7355; } /* リンクも落ち着いた茶系に */
+  
+  /* ボタン（もしあれば）も錆びた質感に馴染ませる */
+  .btn {
+    background-color: rgba(0,0,0,0.2) !important;
+    border: 1px solid #d3c6a6 !important;
+    color: #d3c6a6 !important;
+  }
 </style>
 
 # 片隅ボタニカル
