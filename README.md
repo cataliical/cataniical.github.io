@@ -1,29 +1,3 @@
-<style>
-/* ヘッダーをRusty（錆びた鉄・赤錆）な質感に */
-  header {
-    background: linear-gradient(135deg, #7a4a3a 0%, #4a2c24 100%) !important; /* 錆びた鉄のような赤茶色 */
-    border-bottom: 3px solid #3d241e !important;
-  }
-
-  /* フッターも同様に */
-  footer {
-    background: #4a2c24 !important;
-    color: #a69080 !important;
-  }
-
-  /* ヘッダー内の文字色をアンティークゴールド風に */
-  header h1, header h2 {
-    color: #d3c6a6 !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  }
-  
-  /* ボタン（もしあれば）も錆びた質感に馴染ませる */
-  .btn {
-    background-color: rgba(0,0,0,0.2) !important;
-    border: 1px solid #d3c6a6 !important;
-    color: #d3c6a6 !important;
-  }
-</style>
 
 # 片隅ボタニカル
 **都会の片隅で、植物を育成、管理しています。**
