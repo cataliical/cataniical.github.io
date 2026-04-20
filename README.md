@@ -3,14 +3,13 @@
     
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" 
          alt="cataniical mark" 
-         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; filter: invert(1) grayscale(1); mix-blend-mode: multiply; border: none;">
+         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; filter: invert(1) grayscale(1); mix-blend-mode: color-dodge; border: none;">
 
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
          alt="cataniical" 
          style="max-width: 400px; width: 100%; height: auto; display: inline-block !important; margin: 0; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1); border: none;">
          
   </a>
-
 </div>
 
 ---
