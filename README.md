@@ -1,3 +1,15 @@
+<div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
+  <a href="/" style="text-decoration: none;">
+    <img src="/assets/img/logo_katasumi.jpg" 
+         alt="cataniical" 
+         style="max-width: 550px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
+  </a>
+  <p style="margin-top: 25px; color: #888; font-family: 'Courier Prime', 'Courier New', Courier, monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
+    片隅に植物を　片隅ボタニカル
+  </p>
+</div>
+
+---
 # 片隅ボタニカル
 **都会の片隅で、植物を育てています。**
 
