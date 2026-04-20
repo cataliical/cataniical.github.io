@@ -10,15 +10,14 @@
          style="max-width: 400px; width: 100%; height: auto; display: inline-block !important; margin: 0; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1); border: none;">
          
   </a>
-  
-  <p style="margin-top: 25px; color: #000000; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
-    <strong>片隅ボタニカル　片隅に植物を</strong>
-  </p>
+
 </div>
 
 ---
 
 ### About
+片隅ボタニカル　片隅に植物を
+  </p>
 「片隅ボタニカル」略して、**カタニカル**。
 
 **ハッシュタグ（hashtag）#カタニカル, #cataniical** 
