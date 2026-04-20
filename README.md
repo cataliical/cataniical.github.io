@@ -1,9 +1,9 @@
 <div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
   <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex !important; align-items: center; justify-content: center; gap: 20px; flex-direction: row; border: none;">
     
-    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" 
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_w.jpeg" 
          alt="cataniical mark" 
-         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; filter: invert(1) grayscale(1); mix-blend-mode: color-dodge; border: none;">
+         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; border: none;">
 
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
          alt="cataniical" 
@@ -11,8 +11,6 @@
          
   </a>
 </div>
-
----
 
 ### About
 片隅ボタニカル -- 片隅に植物を　その記録とともに　**カタニカル**。
