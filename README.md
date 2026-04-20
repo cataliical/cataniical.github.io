@@ -11,7 +11,7 @@
          
   </a>
   
-  <p style="margin-top: 25px; color: #444; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
+  <p style="margin-top: 25px; color: #000000; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
     <strong>片隅ボタニカル　片隅に植物を</strong>
   </p>
 </div>
