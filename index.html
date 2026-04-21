@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATANIICAL DIGITAL ARCHIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --sidebar-bg: #f8f9fa;
+            --text-main: #1a1a1a;
+            --text-sub: #666666;
+            --border-color: #e0e0e0;
+            --font-mono: 'Noto Sans Mono', monospace;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            font-family: var(--font-mono);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow: hidden;
+        }
+
+        /* --- 左側サイドバー --- */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .brand-header {
+            padding: 40px 25px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .category-label {
+            padding: 20px 25px 10px;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-top: 1px solid #eee;
+            margin-top: 10px;
+        }
+
+        .sub-menu {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .sub-menu li a {
+            display: block;
+            padding: 8px 25px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .sub-menu li a:hover {
+            background-color: #efefef;
+        }
+
+        /* --- 右側メインコンテンツ --- */
+        .main-content {
+            flex: 1;
+            padding: 60px;
+            overflow-y: auto;
+            background-color: var(--bg-color);
+        }
+
+        .archive-entry {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .entry-header {
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .id-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 5px;
+        }
+
+        .species-title {
+            font-size: 1.6rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 40px;
+            /* 画像がない場合のプレースホルダー */
+            background-color: #f0f0f0;
+            min-height: 400px;
+            object-fit: contain;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .spec-table tr {
+            border-bottom: 1px dotted var(--border-color);
+        }
+
+        .spec-table td {
+            padding: 15px 0;
+        }
+
+        .spec-key {
+            width: 180px;
+            color: var(--text-sub);
+        }
+
+        .spec-value {
+            font-weight: 400;
+        }
+
+        /* フッターSNSリンク */
+        .sidebar-footer {
+            padding: 20px 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sidebar-footer a {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 0.7rem;
+            margin-right: 15px;
+        }
+
+        .sidebar-footer a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand-header">CATANIICAL</div>
+        
+        <nav class="nav-menu">
+            <div class="category-label">Platycerium</div>
+            <ul class="sub-menu">
+                <li><a href="#">Willinckii</a></li>
+            </ul>
+
+            <div class="category-label">Aglaonema</div>
+            <ul class="sub-menu">
+                <li><a href="#">Made In Heaven</a></li>
+                <li><a href="#">Silver Select</a></li>
+            </ul>
+
+            <div class="category-label">Homalomena</div>
+            <ul class="sub-menu">
+                <li><a href="#">Aceh Sumatra</a></li>
+            </ul>
+
+            <div class="category-label">Monstera</div>
+            <ul class="sub-menu">
+                <li><a href="#">Borsigiana</a></li>
+            </ul>
+
+            <div class="category-label">Others</div>
+            <ul class="sub-menu">
+                <li><a href="#">Lab Log</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="https://instagram.com/cataniical" target="_blank">INSTAGRAM</a>
+            <a href="https://x.com/cataniical" target="_blank">X</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="archive-entry">
+            <header class="entry-header">
+                <div class="id-label">CATANIICAL_SPECIMEN_ID: AP-0001</div>
+                <h1 class="species-title">Aglaonema pictum "Made In Heaven"</h1>
+            </header>
+            
+            <img src="assets/images/made_in_heaven_main.jpg" alt="Made In Heaven" class="hero-image">
+
+            <table class="spec-table">
+                <tr>
+                    <td class="spec-key">VARIETY</td>
+                    <td class="spec-value">tricolor</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">LINEAGE</td>
+                    <td class="spec-value">LA1113-3SS</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">LOGGED DATE</td>
+                    <td class="spec-value">2026-04-21</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">SOURCE</td>
+                    <td class="spec-value">Select by cataniical</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">STATUS</td>
+                    <td class="spec-value">Cultivating in Tokyo Atelier</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>
