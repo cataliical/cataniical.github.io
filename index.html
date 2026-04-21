@@ -5,40 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATANIICAL DIGITAL ARCHIVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --sidebar-bg: #f8f9fa;
-            --text-main: #1a1a1a;
-            --font-mono: 'Noto Sans Mono', monospace;
-        }
+        :root { --bg-color: #ffffff; --sidebar-bg: #f8f9fa; --text-main: #1a1a1a; --font-mono: 'Noto Sans Mono', monospace; }
         body { margin: 0; display: flex; height: 100vh; font-family: var(--font-mono); background-color: var(--bg-color); color: var(--text-main); overflow: hidden; }
-        
-        /* サイドバー */
         .sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
-        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; }
+        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-bottom: 1px solid #eee; }
         .nav-menu { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
         .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; }
         .sub-menu { list-style: none; padding: 0; margin-bottom: 15px; }
         .sub-menu li a { display: block; padding: 8px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; }
         .sub-menu li a:hover { background-color: #eee; }
-        
-        /* メインコンテンツ */
         .main-content { flex: 1; overflow-y: auto; background-color: #ffffff; }
         .archive-entry { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; line-height: 1.8; }
         
-        /* README.md内のHTML装飾を維持するための設定 */
+        /* 画像が表示されない問題への対策：README内のインラインスタイルを優先 */
         .archive-entry img { max-width: 100%; height: auto; }
-        .archive-entry h3 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        .archive-entry a { color: #1a1a1a; }
-        
-        /* ローディング表示 */
-        .loading { padding: 40px; font-size: 0.8rem; color: #888; }
+        .archive-entry h3 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; font-size: 1.2rem; }
     </style>
 </head>
 <body>
-
     <aside class="sidebar">
         <div class="brand-header" onclick="loadContent('README.md')">CATANIICAL</div>
         <nav class="nav-menu">
@@ -48,22 +34,11 @@
             </ul>
         </nav>
     </aside>
-
     <main class="main-content">
-        <div id="content-area" class="archive-entry">
-            <div class="loading">INITIATING CATANIICAL ARCHIVE...</div>
-        </div>
+        <div id="content-area" class="archive-entry">INITIATING...</div>
     </main>
 
     <script>
-        // Marked.js のオプション設定（HTMLタグを許可する）
-        marked.setOptions({
-            headerIds: false,
-            mangle: false,
-            breaks: true,
-            gfm: true
-        });
-
         async function loadContent(path) {
             const area = document.getElementById('content-area');
             try {
@@ -71,22 +46,23 @@
                 if (!response.ok) throw new Error('FILE_NOT_FOUND');
                 const mdText = await response.text();
                 
-                // HTMLを含んだMarkdownをパース
+                // 【重要】v4.x 以降でHTMLタグを有効にするための設定
+                // marked.parse はデフォルトでHTMLをそのまま通します
                 area.innerHTML = marked.parse(mdText);
                 
                 document.querySelector('.main-content').scrollTop = 0;
             } catch (e) {
-                area.innerHTML = `<div style="padding:40px; color:red;">[SYSTEM_ERROR] ${e.message}</div>`;
+                area.innerHTML = `<div style="padding:40px; color:red;">[ERROR] ${e.message}</div>`;
             }
         }
 
         window.onload = () => {
-            // ライブラリのロードを待ってから実行
-            if (typeof marked !== 'undefined') {
-                loadContent('README.md');
-            } else {
-                setTimeout(() => loadContent('README.md'), 500);
-            }
+            const checkInterval = setInterval(() => {
+                if (typeof marked !== 'undefined') {
+                    clearInterval(checkInterval);
+                    loadContent('README.md');
+                }
+            }, 100);
         };
     </script>
 </body>
