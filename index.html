@@ -11,188 +11,78 @@
             --bg-color: #ffffff;
             --sidebar-bg: #f8f9fa;
             --text-main: #1a1a1a;
-            --text-sub: #666666;
-            --border-color: #e0e0e0;
             --font-mono: 'Noto Sans Mono', monospace;
         }
-
-        body {
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            font-family: var(--font-mono);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow: hidden;
-        }
-
+        body { margin: 0; display: flex; height: 100vh; font-family: var(--font-mono); background-color: var(--bg-color); color: var(--text-main); overflow: hidden; }
+        
         /* サイドバー */
-        .sidebar {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
-        }
-
-        .brand-header {
-            padding: 40px 25px 20px;
-        }
-
-        .brand-header a {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--text-main);
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
-
-        .category-label {
-            padding: 20px 25px 10px;
-            font-size: 0.75rem;
-            color: var(--text-sub);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border-top: 1px solid #eee;
-            margin-top: 10px;
-        }
-
-        .sub-menu {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        .sub-menu li a {
-            display: block;
-            padding: 8px 25px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        .sub-menu li a:hover {
-            background-color: #efefef;
-        }
-
+        .sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
+        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-bottom: 1px solid #eee; }
+        .nav-menu { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
+        .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
+        .sub-menu { list-style: none; padding: 0; margin-bottom: 15px; }
+        .sub-menu li a { display: block; padding: 8px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .sub-menu li a:hover { background-color: #eee; }
+        
         /* メインコンテンツ */
-        .main-content {
-            flex: 1;
-            padding: 60px;
-            overflow-y: auto;
-        }
-
-        .archive-entry {
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* 画像表示の規律 */
-        .archive-entry img {
-            width: 100%;
-            height: auto;
-            margin: 20px 0;
-            display: block;
-            border: 1px solid var(--border-color);
-        }
-
-        .sidebar-footer {
-            padding: 20px 25px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .sidebar-footer a {
-            text-decoration: none;
-            color: var(--text-sub);
-            font-size: 0.7rem;
-            margin-right: 15px;
-        }
+        .main-content { flex: 1; padding: 60px; overflow-y: auto; scroll-behavior: smooth; }
+        .archive-entry { max-width: 800px; margin: 0 auto; line-height: 1.8; }
+        
+        /* Markdown内の画像規律 */
+        .archive-entry img { max-width: 100%; height: auto; margin: 20px 0; border: 1px solid #eee; display: block; }
+        .archive-entry h1 { font-size: 1.5rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; margin-top: 0; }
+        .archive-entry table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .archive-entry td { padding: 10px 0; border-bottom: 1px dotted #ccc; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="brand-header">
-            <a onclick="loadMD('README.md')">CATANIICAL</a>
-        </div>
-        
+        <div class="brand-header" onclick="loadContent('README.md')">CATANIICAL</div>
         <nav class="nav-menu">
-            <div class="category-label">Platycerium</div>
-            <ul class="sub-menu">
-                <li><a onclick="loadMD('platycerium/sample.md')">SAMPLE_SPECIMEN_P01</a></li>
-            </ul>
-
             <div class="category-label">Aglaonema</div>
             <ul class="sub-menu">
-                <li><a onclick="loadMD('aglaonema/sample.md')">SAMPLE_SPECIMEN_A01</a></li>
+                <li><a onclick="loadContent('README.md')">SAMPLE_INDEX</a></li>
             </ul>
-
-            <div class="category-label">Homalomena</div>
-            <ul class="sub-menu">
-                <li><a onclick="loadMD('homalomena/sample.md')">SAMPLE_SPECIMEN_H01</a></li>
-            </ul>
-
             <div class="category-label">System</div>
             <ul class="sub-menu">
-                <li><a onclick="loadMD('README.md')">ABOUT ARCHIVE</a></li>
+                <li><a onclick="loadContent('README.md')">ABOUT</a></li>
             </ul>
         </nav>
-
-        <div class="sidebar-footer">
-            <a href="https://instagram.com/cataniical" target="_blank">INSTAGRAM</a>
-            <a href="https://x.com/cataniical" target="_blank">X</a>
-        </div>
     </aside>
 
     <main class="main-content">
         <div id="content-area" class="archive-entry">
-            INITIATING ARCHIVE...
+            INITIATING...
         </div>
     </main>
 
     <script>
-        async function loadMD(filePath) {
-            const contentArea = document.getElementById('content-area');
+        async function loadContent(path) {
+            const area = document.getElementById('content-area');
             try {
-                // キャッシュ回避のためのパラメータ付与
-                const response = await fetch(filePath + '?v=' + new Date().getTime());
-                if (!response.ok) throw new Error('FILE_NOT_FOUND: ' + filePath);
-                const text = await response.text();
+                const response = await fetch(path + '?v=' + Date.now());
+                if (!response.ok) throw new Error('FILE NOT FOUND');
+                const mdText = await response.text();
                 
-                // Markdownのパース
-                contentArea.innerHTML = marked.parse(text);
+                // MarkdownをパースしてHTMLとして挿入
+                area.innerHTML = marked.parse(mdText);
                 
-                // ページ上部へスクロール
+                // スクロールをトップに戻す
                 document.querySelector('.main-content').scrollTop = 0;
-
-            } catch (error) {
-                contentArea.innerHTML = `
-                    <div style="color:#cc0000; padding:20px; border:1px solid #cc0000;">
-                        [ERROR_LOG]<br>
-                        STATUS: FAILED_TO_LOAD<br>
-                        TARGET: ${filePath}<br>
-                        MESSAGE: ${error.message}<br><br>
-                        <small>※指定されたパスにMarkdownファイルが存在するか確認してください。</small>
-                    </div>`;
+            } catch (e) {
+                area.innerHTML = `<div style="color:red; border:1px solid red; padding:20px;">[ERROR] ${e.message}<br>Path: ${path}</div>`;
             }
         }
 
-        // 初回起動時
+        // 初回読み込み
         window.onload = () => {
-            loadMD('README.md');
+            if (typeof marked !== 'undefined') {
+                loadContent('README.md');
+            } else {
+                // ライブラリ読み込み待ちの再試行
+                setTimeout(() => loadContent('README.md'), 500);
+            }
         };
     </script>
 </body>
