@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATANIICAL DIGITAL ARCHIVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -25,7 +26,6 @@
             overflow: hidden;
         }
 
-        /* --- 左側サイドバー --- */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -37,10 +37,16 @@
 
         .brand-header {
             padding: 40px 25px 20px;
+        }
+
+        /* ロゴリンクのスタイル */
+        .brand-header a {
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
         }
 
         .nav-menu {
@@ -73,78 +79,32 @@
             text-decoration: none;
             color: var(--text-main);
             font-size: 0.85rem;
-            transition: background 0.2s;
+            cursor: pointer;
         }
 
         .sub-menu li a:hover {
             background-color: #efefef;
         }
 
-        /* --- 右側メインコンテンツ --- */
         .main-content {
             flex: 1;
             padding: 60px;
             overflow-y: auto;
-            background-color: var(--bg-color);
         }
 
         .archive-entry {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
-        .entry-header {
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-        }
-
-        .id-label {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-            margin-bottom: 5px;
-        }
-
-        .species-title {
-            font-size: 1.6rem;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        .hero-image {
+        /* Markdown表示用の微調整 */
+        .archive-entry img {
             width: 100%;
             height: auto;
-            margin-bottom: 40px;
-            /* 画像がない場合のプレースホルダー */
-            background-color: #f0f0f0;
-            min-height: 400px;
-            object-fit: contain;
+            margin: 20px 0;
         }
 
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .spec-table tr {
-            border-bottom: 1px dotted var(--border-color);
-        }
-
-        .spec-table td {
-            padding: 15px 0;
-        }
-
-        .spec-key {
-            width: 180px;
-            color: var(--text-sub);
-        }
-
-        .spec-value {
-            font-weight: 400;
-        }
-
-        /* フッターSNSリンク */
         .sidebar-footer {
             padding: 20px 25px;
             border-top: 1px solid var(--border-color);
@@ -156,42 +116,29 @@
             font-size: 0.7rem;
             margin-right: 15px;
         }
-
-        .sidebar-footer a:hover {
-            color: #000;
-        }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div class="brand-header">CATANIICAL</div>
+        <div class="brand-header">
+            <a href="index.html">CATANIICAL</a>
+        </div>
         
         <nav class="nav-menu">
             <div class="category-label">Platycerium</div>
             <ul class="sub-menu">
-                <li><a href="#">Willinckii</a></li>
+                <li><a onclick="loadMD('platycerium/specimen-01.md')">Specimen 01</a></li>
             </ul>
 
             <div class="category-label">Aglaonema</div>
             <ul class="sub-menu">
-                <li><a href="#">Made In Heaven</a></li>
-                <li><a href="#">Silver Select</a></li>
-            </ul>
-
-            <div class="category-label">Homalomena</div>
-            <ul class="sub-menu">
-                <li><a href="#">Aceh Sumatra</a></li>
-            </ul>
-
-            <div class="category-label">Monstera</div>
-            <ul class="sub-menu">
-                <li><a href="#">Borsigiana</a></li>
+                <li><a onclick="loadMD('aglaonema/made-in-heaven.md')">Made In Heaven</a></li>
             </ul>
 
             <div class="category-label">Others</div>
             <ul class="sub-menu">
-                <li><a href="#">Lab Log</a></li>
+                <li><a onclick="loadMD('README.md')">About CATANIICAL</a></li>
             </ul>
         </nav>
 
@@ -202,38 +149,30 @@
     </aside>
 
     <main class="main-content">
-        <div class="archive-entry">
-            <header class="entry-header">
-                <div class="id-label">CATANIICAL_SPECIMEN_ID: AP-0001</div>
-                <h1 class="species-title">Aglaonema pictum "Made In Heaven"</h1>
-            </header>
-            
-            <img src="assets/images/made_in_heaven_main.jpg" alt="Made In Heaven" class="hero-image">
-
-            <table class="spec-table">
-                <tr>
-                    <td class="spec-key">VARIETY</td>
-                    <td class="spec-value">tricolor</td>
-                </tr>
-                <tr>
-                    <td class="spec-key">LINEAGE</td>
-                    <td class="spec-value">LA1113-3SS</td>
-                </tr>
-                <tr>
-                    <td class="spec-key">LOGGED DATE</td>
-                    <td class="spec-value">2026-04-21</td>
-                </tr>
-                <tr>
-                    <td class="spec-key">SOURCE</td>
-                    <td class="spec-value">Select by cataniical</td>
-                </tr>
-                <tr>
-                    <td class="spec-key">STATUS</td>
-                    <td class="spec-value">Cultivating in Tokyo Atelier</td>
-                </tr>
-            </table>
+        <div id="content-area" class="archive-entry">
+            Loading...
         </div>
     </main>
+
+    <script>
+        // Markdownファイルを読み込んで表示する関数
+        async function loadMD(filePath) {
+            const contentArea = document.getElementById('content-area');
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) throw new Error('File not found');
+                const text = await response.text();
+                contentArea.innerHTML = marked.parse(text);
+            } catch (error) {
+                contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+            }
+        }
+
+        // 初期表示：README.md を読み込む
+        window.onload = () => {
+            loadMD('README.md');
+        };
+    </script>
 
 </body>
 </html>
