@@ -17,22 +17,24 @@
         
         /* サイドバー */
         .sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
-        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-bottom: 1px solid #eee; }
+        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; }
         .nav-menu { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
-        .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
+        .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; }
         .sub-menu { list-style: none; padding: 0; margin-bottom: 15px; }
-        .sub-menu li a { display: block; padding: 8px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .sub-menu li a { display: block; padding: 8px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; }
         .sub-menu li a:hover { background-color: #eee; }
         
         /* メインコンテンツ */
-        .main-content { flex: 1; padding: 60px; overflow-y: auto; scroll-behavior: smooth; }
-        .archive-entry { max-width: 800px; margin: 0 auto; line-height: 1.8; }
+        .main-content { flex: 1; overflow-y: auto; background-color: #ffffff; }
+        .archive-entry { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; line-height: 1.8; }
         
-        /* Markdown内の画像規律 */
-        .archive-entry img { max-width: 100%; height: auto; margin: 20px 0; border: 1px solid #eee; display: block; }
-        .archive-entry h1 { font-size: 1.5rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; margin-top: 0; }
-        .archive-entry table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .archive-entry td { padding: 10px 0; border-bottom: 1px dotted #ccc; font-size: 0.9rem; }
+        /* README.md内のHTML装飾を維持するための設定 */
+        .archive-entry img { max-width: 100%; height: auto; }
+        .archive-entry h3 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+        .archive-entry a { color: #1a1a1a; }
+        
+        /* ローディング表示 */
+        .loading { padding: 40px; font-size: 0.8rem; color: #888; }
     </style>
 </head>
 <body>
@@ -40,47 +42,49 @@
     <aside class="sidebar">
         <div class="brand-header" onclick="loadContent('README.md')">CATANIICAL</div>
         <nav class="nav-menu">
-            <div class="category-label">Aglaonema</div>
+            <div class="category-label">Archive</div>
             <ul class="sub-menu">
-                <li><a onclick="loadContent('README.md')">SAMPLE_INDEX</a></li>
-            </ul>
-            <div class="category-label">System</div>
-            <ul class="sub-menu">
-                <li><a onclick="loadContent('README.md')">ABOUT</a></li>
+                <li><a onclick="loadContent('README.md')">HOME / ABOUT</a></li>
             </ul>
         </nav>
     </aside>
 
     <main class="main-content">
         <div id="content-area" class="archive-entry">
-            INITIATING...
+            <div class="loading">INITIATING CATANIICAL ARCHIVE...</div>
         </div>
     </main>
 
     <script>
+        // Marked.js のオプション設定（HTMLタグを許可する）
+        marked.setOptions({
+            headerIds: false,
+            mangle: false,
+            breaks: true,
+            gfm: true
+        });
+
         async function loadContent(path) {
             const area = document.getElementById('content-area');
             try {
                 const response = await fetch(path + '?v=' + Date.now());
-                if (!response.ok) throw new Error('FILE NOT FOUND');
+                if (!response.ok) throw new Error('FILE_NOT_FOUND');
                 const mdText = await response.text();
                 
-                // MarkdownをパースしてHTMLとして挿入
+                // HTMLを含んだMarkdownをパース
                 area.innerHTML = marked.parse(mdText);
                 
-                // スクロールをトップに戻す
                 document.querySelector('.main-content').scrollTop = 0;
             } catch (e) {
-                area.innerHTML = `<div style="color:red; border:1px solid red; padding:20px;">[ERROR] ${e.message}<br>Path: ${path}</div>`;
+                area.innerHTML = `<div style="padding:40px; color:red;">[SYSTEM_ERROR] ${e.message}</div>`;
             }
         }
 
-        // 初回読み込み
         window.onload = () => {
+            // ライブラリのロードを待ってから実行
             if (typeof marked !== 'undefined') {
                 loadContent('README.md');
             } else {
-                // ライブラリ読み込み待ちの再試行
                 setTimeout(() => loadContent('README.md'), 500);
             }
         };
