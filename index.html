@@ -30,17 +30,28 @@
             margin-bottom: 80px;
         }
 
+        /* ロゴとテキストを垂直方向に中央揃えにする設定 */
         h1 {
             font-size: 1.6rem;
             font-weight: 400;
             margin: 0;
             font-family: 'Courier Prime', monospace;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* 画像と文字の間隔 */
+        }
+
+        /* ロゴ画像のサイズ調整 */
+        .logo {
+            height: 40px; /* 一行の高さに合わせる */
+            width: auto;
         }
 
         .definition {
             font-size: 0.75rem;
             color: #888;
-            margin-top: 0.8rem;
+            font-family: 'Noto Serif JP', serif;
+            font-weight: normal;
         }
 
         section {
@@ -61,12 +72,14 @@
 
         .creed-list {
             list-style: none;
-            padding-left: 0.5rem;
+            padding-left: 0;
+            margin-top: 0.5rem;
             margin-bottom: 2.5rem;
         }
 
         .creed-list li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
         }
 
         ruby rt {
@@ -85,6 +98,11 @@
             article {
                 padding: 30px;
             }
+            h1 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -92,8 +110,10 @@
 
 <article>
     <header>
-        <h1>cataniical</h1>
-        <p class="definition">cataniical は「片隅ボタニカル」の略称です。</p>
+        <h1>
+            <img src="https://raw.githubusercontent.com/cataniical/assets/main/img/logo_catasumi.jpg" alt="cataniical logo" class="logo">
+            cataniical<span class="definition"> は「片隅ボタニカル」の略称です。</span>
+        </h1>
     </header>
 
     <main>
