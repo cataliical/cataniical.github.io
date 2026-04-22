@@ -24,10 +24,19 @@
         article {
             max-width: 600px;
             padding: 40px;
+            width: 100%;
         }
 
         header {
             margin-bottom: 80px;
+        }
+
+        /* 画像とタイトルを分離せず、一貫したベースラインで保持 */
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.5rem;
         }
 
         h1 {
@@ -35,23 +44,20 @@
             font-weight: 400;
             margin: 0;
             font-family: 'Courier Prime', monospace;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
         }
 
         .logo {
-            height: 32px; /* テキストの高さに合わせた繊細なサイズ */
+            display: block;
+            height: 32px;
             width: auto;
-            vertical-align: middle;
         }
 
         .definition {
             font-size: 0.75rem;
             color: #888;
             font-family: 'Noto Serif JP', serif;
-            font-weight: normal;
+            display: block; /* 崩れを防ぐため独立 */
+            margin-top: 4px;
         }
 
         section {
@@ -98,8 +104,8 @@
             article {
                 padding: 30px;
             }
-            h1 {
-                gap: 8px;
+            .brand-area {
+                gap: 10px;
             }
         }
     </style>
@@ -108,10 +114,11 @@
 
 <article>
     <header>
-        <h1>
-            <img src="assets/img/logo_catasumi.jpg" alt="" class="logo">
-            cataniical<span class="definition"> は「片隅ボタニカル」の略称です。</span>
-        </h1>
+        <div class="brand-area">
+            <img src="./assets/img/logo_catasumi.jpg" alt="" class="logo">
+            <h1>cataniical</h1>
+        </div>
+        <span class="definition">cataniical は「片隅ボタニカル」の略称です。</span>
     </header>
 
     <main>
