@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cataniical</title>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            /* 墨色を濃くし、可読性を向上 */
+            /* すべての文字を純黒に固定 */
             color: #000000;
             font-family: 'Courier Prime', 'Noto Serif JP', serif;
+            font-weight: 400;
             line-height: 2.2;
             display: flex;
             justify-content: center;
@@ -47,12 +48,11 @@
             width: auto;
         }
 
-        /* 注釈の色を濃いグレーに変更 */
         .definition {
             font-size: 0.75rem;
-            color: #444;
+            color: #000000;
             font-family: 'Noto Serif JP', serif;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         section {
@@ -65,8 +65,9 @@
 
         .creed-title {
             margin-bottom: 1.8rem;
-            font-weight: 400;
-            border-bottom: 1.5px solid #333;
+            font-weight: 700;
+            /* 下線を太くし、存在感を強調 */
+            border-bottom: 2px solid #000000;
             display: inline-block;
             padding-bottom: 4px;
         }
@@ -83,19 +84,19 @@
             padding-left: 0.5rem;
         }
 
-        /* ルビの視認性を確保 */
+        /* ルビもはっきりと見えるように */
         ruby rt {
             font-size: 0.55em;
             letter-spacing: 0.05em;
-            color: #333;
-            font-weight: 400;
+            color: #000000;
+            font-weight: 500;
         }
 
-        /* フッターも読みやすく */
         footer {
             margin-top: 120px;
             font-size: 0.85rem;
-            color: #222;
+            color: #000000;
+            font-weight: 400;
         }
 
         @media (max-width: 480px) {
@@ -105,7 +106,7 @@
             header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
+                gap: 12px;
             }
         }
     </style>
