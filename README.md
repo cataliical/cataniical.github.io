@@ -3,7 +3,8 @@
   </a>
 
 ### About カタニカル
-**片隅にボタニカルを　その記録とともに**
+**片隅にボタニカルを**
+**その記録とともに**
 
 **ハッシュタグ（hashtag）#カタニカル, #cataniical** 日々の植物達の成長などを発信しています。
 
@@ -16,4 +17,4 @@
 - [GitHub (@cataniical)](https://github.com/cataniical)
 
 ---
-© 2026 cataniical
+© 2026 cataniical&trade;
